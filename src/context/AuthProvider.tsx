@@ -15,10 +15,13 @@ const initialState: AuthState = {
   errorMessage: "",
 };
 
-const AuthContext = createContext<{
-  state: AuthState;
-  dispatch: Dispatch<Action>;
-}>();
+const AuthContext = createContext<
+  | {
+      state: AuthState;
+      dispatch: Dispatch<Action>;
+    }
+  | undefined
+>(undefined);
 
 function AuthProvider({ children }: ProviderChildren) {
   /**
